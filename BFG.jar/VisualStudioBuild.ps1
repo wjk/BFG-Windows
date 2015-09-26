@@ -15,4 +15,4 @@ foreach ($param in $Params) {
 }
 
 $ScriptPath = (Split-Path -Parent $MyInvocation.MyCommand.Path)
-& $ScriptPath\psake\psake.ps1 -BuildFile PSBuild.ps1 -Parameters $ParsedParams -TaskList $Tasks
+& "$ScriptPath\psake\psake.ps1" -BuildFile PSBuild.ps1 -Parameters $ParsedParams -TaskList $Tasks
