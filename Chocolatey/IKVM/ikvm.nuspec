@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>ikvm</id>
+    <title>IKVM.NET</title>
+    <version>8.1.5717.0</version>
+    <authors>Jeroen Frijters</authors>
+    <licenseUrl>http://sourceforge.net/p/ikvm/wiki/License/</licenseUrl>
+    <projectUrl>http://www.ikvm.net/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+IKVM.NET is a cross-compiler and a runtime that enables unmodified Java JARs to run on the .NET platform (including Mono).
+
+This package includes the following tools:
+
+* `ikvm`: The runtime itself. Similar to the `java` executable, this tool runs JARs or raw class files using the Common Language Runtime through IKVM.NET.
+* `ikvmc`: This executable compiles class files or JARs into a EXE or DLL usable on the .NET platform, without requiring that the JRE be installed.
+* `ikvmstub`
+    </description>
+    <summary>IKVM.NET is a runtime that runs Java JARs on the .NET platform.</summary>
+    <releaseNotes></releaseNotes>
+    <tags>java compiler runtime</tags>
+  </metadata>
+
+  <files>
+    <file src="tools\chocolateyInstall.ps1" target="tools"/>
+  </files>
+</package>
