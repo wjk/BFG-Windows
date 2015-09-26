@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Download.ps1" />
+    <None Include="Project.mak" />
     <None Include="PSBuild.ps1" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -68,38 +70,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <NMakeOutput>BFG.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeBuildCommandLine>
-    </NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>
-    </NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>
-    </NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." build</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." rebuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." clean</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeOutput>BFG.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeBuildCommandLine>
-    </NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>
-    </NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>
-    </NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." build</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." rebuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." clean</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <NMakeBuildCommandLine>
-    </NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>
-    </NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>
-    </NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." build</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." rebuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." clean</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <NMakeBuildCommandLine>
-    </NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>
-    </NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>
-    </NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." build</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." rebuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>nmake /nologo /f "$(ProjectDir)Project.mak" "OutDir=$(OutDir)." "IntDir=$(IntDir)." clean</NMakeCleanCommandLine>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
