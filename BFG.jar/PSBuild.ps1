@@ -35,3 +35,9 @@ Task DownloadJar {
 		Get-WebFile "http://repo1.maven.org/maven2/com/madgag/bfg/1.12.5/bfg-1.12.5.jar"
 	}
 }
+
+Task Clean {
+	Attempt "Deleting downloaded files" {
+		rm -ErrorAction SilentlyContinue "bfg-1.12.5.jar"
+	}
+}
