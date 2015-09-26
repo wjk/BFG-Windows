@@ -28,10 +28,6 @@ namespace sha1sum
                 {
                     Console.Error.WriteLine($"{filename}: File not found. Ignoring");
                 }
-                catch (IOException)
-                {
-                    Console.Error.WriteLine($"{filename}: IOException. Ignoring this file.");
-                }
                 catch (Exception ex)
                 {
                     Console.Error.WriteLine($"{filename}: {ex.GetType().Name} was thrown. Ignoring this file.");
