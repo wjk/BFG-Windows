@@ -19,5 +19,15 @@ public:
 	CJavaLauncher() {}
 	virtual ~CJavaLauncher() {}
 
+	void SetClassPath(const CAtlArray<CString>& classPath)
+	{
+		m_ClassPath.Copy(classPath);
+	}
+
+	void GetClassPath(CAtlArray<CString>& classPath)
+	{
+		classPath.Copy(m_ClassPath);
+	}
+
 	bool FindJava(const CString& requiredVersion);
 };
