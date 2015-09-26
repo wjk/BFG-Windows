@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="PSBuild.ps1">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="Project.mak">
       <Filter>Source Files</Filter>
     </None>

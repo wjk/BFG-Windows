@@ -21,7 +21,6 @@
   <ItemGroup>
     <None Include="Download.ps1" />
     <None Include="Project.mak" />
-    <None Include="PSBuild.ps1" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F88F1CC9-745F-48BA-88AD-2F83CD9EDC88}</ProjectGuid>
