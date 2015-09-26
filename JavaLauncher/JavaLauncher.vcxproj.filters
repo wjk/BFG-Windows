@@ -15,7 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DllMain.cpp">
+    <ClInclude Include="JavaLauncher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="JavaLauncher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
