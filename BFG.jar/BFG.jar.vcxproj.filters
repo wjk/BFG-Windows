@@ -18,8 +18,5 @@
     <None Include="PSBuild.ps1">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="VisualStudioBuild.ps1">
-      <Filter>Source Files</Filter>
-    </None>
   </ItemGroup>
 </Project>
