@@ -28,7 +28,8 @@ function Attempt {
 	}
 }
 
-Task default -Depends DownloadJar
+Task default -Depends build
+Task build -Depends DownloadJar
 
 Task DownloadJar {
 	Attempt "Downloading BFG-1.12.5" {
