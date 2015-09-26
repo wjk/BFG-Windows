@@ -12,7 +12,7 @@ all : build
 
 .PHONY : build
 build : 
-	powershell -executionpolicy bypass -command .\Download.ps1 -URI "'http://repo1.maven.org/maven2/com/madgag/bfg/1.12.5/bfg-1.12.5.jar'" -OutputFile "'$(OutDir)\bfg-1.12.5.jar'"
+	powershell -executionpolicy bypass -command .\Download.ps1 -URI "'http://repo1.maven.org/maven2/com/madgag/bfg/1.12.5/bfg-1.12.5.jar'" -OutputFile "'$(OutDir)\bfg-1.12.5.jar'" -SkipIfPresent
 
 .PHONY : clean
 clean : 
