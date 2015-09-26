@@ -32,10 +32,16 @@ Task default -Depends build
 Task build -Depends DownloadJar
 
 Task DownloadJar {
+	$outfile = "bfg-1.12.5.jar"
 	Attempt "Downloading BFG-1.12.5" {
-		$outfile = "bfg-1.12.5.jar"
 		if (-not [System.IO.File]::Exists($outfile)) {
 			Get-WebFile "http://repo1.maven.org/maven2/com/madgag/bfg/1.12.5/bfg-1.12.5.jar" $outfile
+		}
+	}
+
+	if (-not $OutDir -eq $null -and -not $OutDir -eq "") {
+		Attempt "Copying jar to OutDir" {
+			copy $outfile $OutDir\$outfile
 		}
 	}
 }
