@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="PSBuild.ps1" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F88F1CC9-745F-48BA-88AD-2F83CD9EDC88}</ProjectGuid>
     <Keyword>MakeFileProj</Keyword>
