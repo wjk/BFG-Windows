@@ -33,7 +33,10 @@ Task build -Depends DownloadJar
 
 Task DownloadJar {
 	Attempt "Downloading BFG-1.12.5" {
-		Get-WebFile "http://repo1.maven.org/maven2/com/madgag/bfg/1.12.5/bfg-1.12.5.jar"
+		$outfile = "bfg-1.12.5.jar"
+		if (-not [System.IO.File]::Exists($outfile)) {
+			Get-WebFile "http://repo1.maven.org/maven2/com/madgag/bfg/1.12.5/bfg-1.12.5.jar" $outfile
+		}
 	}
 }
 
