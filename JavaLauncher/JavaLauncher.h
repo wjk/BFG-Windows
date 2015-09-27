@@ -14,6 +14,7 @@ private:
 	CString m_JavaHome = "";
 	CAtlArray<CString> m_ClassPath;
 	CAtlArray<CString> m_ExtraArgv;
+	CAtlArray<CString> m_ProgramArgv;
 
 	bool _LaunchJava(const CString& path, bool isPathJar, bool windowedMode, long& pid);
 
@@ -39,6 +40,16 @@ public:
 	void GetExtraJavaArguments(CAtlArray<CString>& argv)
 	{
 		argv.Copy(m_ExtraArgv);
+	}
+
+	void SetProgramArguments(CAtlArray<CString>& argv)
+	{
+		m_ProgramArgv.Copy(argv);
+	}
+
+	void GetProgramArguments(CAtlArray<CString>& argv)
+	{
+		argv.Copy(m_ProgramArgv);
 	}
 
 	bool FindJava(const CString& requiredVersion);
