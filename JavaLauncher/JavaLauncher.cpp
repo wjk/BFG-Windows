@@ -75,6 +75,8 @@ bool CJavaLauncher::_LaunchJava(const CString& path, bool isPathJar, bool window
 		commandLine.AppendFormat(_T("\"%S\""), javaArgv.GetAt(idx).GetString());
 	}
 
+	javaArgv.Append(m_ExtraArgv);
+
 	PROCESS_INFORMATION process;
 
 	LPWSTR buffer = commandLine.GetBuffer();
