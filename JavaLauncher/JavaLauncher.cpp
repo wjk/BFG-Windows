@@ -7,12 +7,12 @@ static inline CString GetJavaExeName(bool windowedMode)
 
 bool CJavaLauncher::FindJava(const CString& requiredVersion) {
 	bool success = true;
-	
 	HKEY javaRootKey = nullptr;
+	HKEY versionKey = nullptr;
+
 	LONG result = RegOpenKey(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), &javaRootKey);
 	if (result != ERROR_SUCCESS) { success = false; goto cleanup; }
 
-	HKEY versionKey = nullptr;
 	result = RegOpenKey(javaRootKey, requiredVersion.GetString(), &versionKey);
 	if (result != ERROR_SUCCESS) { success = false; goto cleanup; }
 
