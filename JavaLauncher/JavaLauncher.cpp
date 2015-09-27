@@ -166,7 +166,6 @@ bool CJavaLauncher::Wait(long pid, long& exitCode)
 	do {
 		WaitForSingleObject(hProcess, INFINITE);
 
-		DWORD win32Code;
 		BOOL success = GetExitCodeProcess(hProcess, &win32Code);
 		if (!success) {
 			retval = false;
