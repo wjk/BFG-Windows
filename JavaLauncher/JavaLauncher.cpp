@@ -5,15 +5,49 @@ static inline CString GetJavaExeName(bool windowedMode)
 	return windowedMode ? "javaw.exe" : "java.exe";
 }
 
+static LONG RegOpenKeyPath(HKEY rootKey, LPTSTR path, DWORD flags, REGSAM rights, PHKEY result)
+{
+	HKEY hKey = nullptr;
+	LONG status = RegOpenKeyEx(rootKey, NULL, flags, rights, &hKey); // duplicate the key
+	if (status != ERROR_SUCCESS) return status;
+
+	// I must prepend a backslash to the path, otherwise CString.Tokenize()
+	// will skip the first path element.
+	CString pathString = path;
+	if (pathString.Left(1) != _T("\\")) {
+		pathString = _T("\\");
+		pathString.Append(path);
+	}
+
+	int position = 0;
+	CString fragment = pathString.Tokenize(_T("\\"), position);
+	while (fragment != _T("")) {
+		HKEY hNewKey = nullptr;
+		status = RegOpenKeyEx(hKey, fragment.GetString(), flags, rights, &hNewKey);
+		if (status != ERROR_SUCCESS) {
+			RegCloseKey(hKey);
+			return status;
+		}
+
+		RegCloseKey(hKey);
+		hKey = hNewKey;
+
+		fragment = pathString.Tokenize(_T("\\"), position);
+	}
+
+	if (result != nullptr) *result = hKey;
+	return ERROR_SUCCESS;
+}
+
 bool CJavaLauncher::FindJava(const CString& requiredVersion) {
 	bool success = true;
 	HKEY javaRootKey = nullptr;
 	HKEY versionKey = nullptr;
 
-	LONG result = RegOpenKey(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), &javaRootKey);
+	LONG result = RegOpenKeyPath(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), 0, KEY_READ, &javaRootKey);
 	if (result != ERROR_SUCCESS) { success = false; goto cleanup; }
 
-	result = RegOpenKey(javaRootKey, requiredVersion.GetString(), &versionKey);
+	result = RegOpenKeyEx(javaRootKey, requiredVersion.GetString(), 0, KEY_READ, &versionKey);
 	if (result != ERROR_SUCCESS) { success = false; goto cleanup; }
 
 	DWORD valueLength = 0;
