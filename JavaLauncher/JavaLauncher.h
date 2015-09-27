@@ -33,4 +33,5 @@ public:
 	bool FindJava(const CString& requiredVersion);
 	bool LaunchJar(const CString& jarPath, bool windowedMode, long& pid);
 	bool LaunchClassFile(const CString& classFilePath, bool windowedMode, long& pid);
+	bool Wait(long pid, long& exitCode);
 };

@@ -98,3 +98,31 @@ bool CJavaLauncher::LaunchClassFile(const CString& classFilePath, bool windowedM
 {
 	return _LaunchJava(classFilePath, true, windowedMode, pid);
 }
+
+bool CJavaLauncher::Wait(long pid, long& exitCode)
+{
+	bool retval = true;
+
+	HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, pid);
+	if (hProcess == INVALID_HANDLE_VALUE) {
+		retval = false;
+		goto cleanup;
+	}
+
+	DWORD win32Code = STILL_ACTIVE;
+	do {
+		WaitForSingleObject(hProcess, INFINITE);
+
+		DWORD win32Code;
+		BOOL success = GetExitCodeProcess(hProcess, &win32Code);
+		if (!success) {
+			retval = false;
+			goto cleanup;
+		}
+	} while (win32Code == STILL_ACTIVE);
+
+	exitCode = win32Code;
+cleanup:
+	CloseHandle(hProcess);
+	return retval;
+}
