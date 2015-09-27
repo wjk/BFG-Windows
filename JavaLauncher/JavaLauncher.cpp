@@ -44,10 +44,21 @@ bool CJavaLauncher::FindJava(const CString& requiredVersion) {
 	HKEY javaRootKey = nullptr;
 	HKEY versionKey = nullptr;
 
-	LONG result = RegOpenKeyPath(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), 0, KEY_READ, &javaRootKey);
-	if (result != ERROR_SUCCESS) { success = false; goto cleanup; }
+	REGSAM registryRights = KEY_READ;
 
-	result = RegOpenKeyEx(javaRootKey, requiredVersion.GetString(), 0, KEY_READ, &versionKey);
+	LONG result = RegOpenKeyPath(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), 0, registryRights, &javaRootKey);
+	if (result != ERROR_SUCCESS) {
+		// If the 32-bit Java key was not found, try the 64-bit Java key.
+		registryRights |= KEY_WOW64_64KEY;
+		result = RegOpenKeyPath(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), 0, registryRights, &javaRootKey);
+		if (result != ERROR_SUCCESS) {
+			// Neither a 32-bit nor a 64-bit Java was found.
+			success = false;
+			goto cleanup;
+		}
+	}
+
+	result = RegOpenKeyEx(javaRootKey, requiredVersion.GetString(), 0, registryRights, &versionKey);
 	if (result != ERROR_SUCCESS) { success = false; goto cleanup; }
 
 	DWORD valueLength = 0;
