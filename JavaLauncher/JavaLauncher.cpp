@@ -92,7 +92,7 @@ bool CJavaLauncher::_LaunchJava(const CString& path, bool isPathJar, bool window
 
 	CAtlArray<CString> javaArgv;
 	CString javaExeName = GetJavaExeName(windowedMode);
-	CString argv0; argv0.AppendFormat(_T("%S\\bin\\%S"), m_JavaHome.GetString(), javaExeName.GetString());
+	CString argv0; argv0.AppendFormat(_T("%lS\\bin\\%lS"), m_JavaHome.GetString(), javaExeName.GetString());
 	javaArgv.Add(argv0);
 
 	// Classpath
@@ -114,14 +114,14 @@ bool CJavaLauncher::_LaunchJava(const CString& path, bool isPathJar, bool window
 	if (isPathJar) javaArgv.Add(_T("-jar"));
 	javaArgv.Add(path);
 
+	javaArgv.Append(m_ProgramArgv);
+
 	CString commandLine;
 	limit = javaArgv.GetCount();
 	for (size_t idx = 0; idx < limit; idx++)
 	{
-		commandLine.AppendFormat(_T("\"%S\""), javaArgv.GetAt(idx).GetString());
+		commandLine.AppendFormat(_T("\"%lS\" "), javaArgv.GetAt(idx).GetString());
 	}
-
-	javaArgv.Append(m_ProgramArgv);
 
 	PROCESS_INFORMATION process;
 
