@@ -28,9 +28,7 @@ Properties {
 	$OutDir = $null
 }
 
-Task default -Depends empty
-Task empty {}
-
+Task default -Depends build
 Task build -Depends DownloadJar
 Task DownloadJar -Description "Downloads bfg-1.12.5.jar and saves it into the `$(OutDir)" -RequiredVariables OutDir {
 	$jarpath = "$($OutDir)\bfg-1.12.5.jar"
