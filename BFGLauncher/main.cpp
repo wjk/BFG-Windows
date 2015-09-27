@@ -33,7 +33,7 @@ int _tmain(int argc, const TCHAR *argv[])
 	}
 
 	CString JarPath;
-	CString MyDir = MyPath.Left(MyPath.GetLength() - MyPath.ReverseFind('\\'));
+	CString MyDir = MyPath.Left(MyPath.ReverseFind('\\'));
 	JarPath.AppendFormat(_T("%lS\\%lS"), MyDir.GetString(), JarName.GetString());
 
 	CAtlArray<CString> programArgv;
