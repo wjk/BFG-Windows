@@ -27,10 +27,10 @@ bool CJavaLauncher::FindJava(const CString& requiredVersion) {
 		
 		if (result != ERROR_SUCCESS) { success = false; goto cleanup; }
 		m_JavaHome.ReleaseBuffer();
-	} else if (result == ERROR_SUCCESS) {
-		// The value contains a zero-length string. This should never happen, but whatever.
-		m_JavaHome.Empty();
 	} else {
+		// If the value contains a zero-length string, then _LaunchJava() will fail.
+		// While this could technically happen, in the context of CJavaLauncher it
+		// is still an error.
 		success = false;
 	}
 
