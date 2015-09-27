@@ -124,9 +124,14 @@ bool CJavaLauncher::_LaunchJava(const CString& path, bool isPathJar, bool window
 	}
 
 	PROCESS_INFORMATION process;
+	STARTUPINFO startupInfo = { 0 };
+	startupInfo.cb = sizeof(STARTUPINFO);
+	startupInfo.hStdInput = GetStdHandle(STD_INPUT_HANDLE);
+	startupInfo.hStdOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	startupInfo.hStdError = GetStdHandle(STD_ERROR_HANDLE);
 
-	LPWSTR buffer = commandLine.GetBuffer();
-	BOOL success = CreateProcess(NULL, buffer, NULL, NULL, FALSE, 0, NULL, NULL, NULL, &process);
+	LPTSTR buffer = commandLine.GetBuffer();
+	BOOL success = CreateProcess(NULL, buffer, NULL, NULL, FALSE, 0, NULL, NULL, &startupInfo, &process);
 	commandLine.ReleaseBuffer();
 	if (!success) return false;
 
