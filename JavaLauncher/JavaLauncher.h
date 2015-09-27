@@ -11,9 +11,10 @@
 class CJavaLauncher
 {
 private:
-	CString m_JavaHome;
-	CAtlArray<CString> m_JavaExeArgs;
+	CString m_JavaHome = "";
 	CAtlArray<CString> m_ClassPath;
+
+	bool _LaunchJava(const CString& path, bool isPathJar, bool windowedMode, long& pid);
 
 public:
 	CJavaLauncher() {}
@@ -30,4 +31,6 @@ public:
 	}
 
 	bool FindJava(const CString& requiredVersion);
+	bool LaunchJar(const CString& jarPath, bool windowedMode, long& pid);
+	bool LaunchClassFile(const CString& classFilePath, bool windowedMode, long& pid);
 };
