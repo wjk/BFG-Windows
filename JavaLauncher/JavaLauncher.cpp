@@ -64,6 +64,7 @@ bool CJavaLauncher::_LaunchJava(const CString& path, bool isPathJar, bool window
 
 	javaArgv.Add(_T("-cp"));
 	javaArgv.Add(classpath);
+	javaArgv.Append(m_ExtraArgv);
 
 	if (isPathJar) javaArgv.Add(_T("-jar"));
 	javaArgv.Add(path);
@@ -74,8 +75,6 @@ bool CJavaLauncher::_LaunchJava(const CString& path, bool isPathJar, bool window
 	{
 		commandLine.AppendFormat(_T("\"%S\""), javaArgv.GetAt(idx).GetString());
 	}
-
-	javaArgv.Append(m_ExtraArgv);
 
 	PROCESS_INFORMATION process;
 

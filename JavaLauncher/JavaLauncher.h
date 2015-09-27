@@ -31,12 +31,12 @@ public:
 		classPath.Copy(m_ClassPath);
 	}
 
-	void SetExtraArguments(CAtlArray<CString>& argv)
+	void SetExtraJavaArguments(CAtlArray<CString>& argv)
 	{
 		m_ExtraArgv.Copy(argv);
 	}
 
-	void GetExtraArguments(CAtlArray<CString>& argv)
+	void GetExtraJavaArguments(CAtlArray<CString>& argv)
 	{
 		argv.Copy(m_ExtraArgv);
 	}
