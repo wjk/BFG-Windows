@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <authors>Roberto Tyley</authors>
     <description>
-# The BFG: An alternative to `git filter-branch`
+# The BFG Repo Cleaner
 
 The BFG is a simpler, faster alternative to `git filter-branch` for cleansing bad data out of your Git repository history:
 
