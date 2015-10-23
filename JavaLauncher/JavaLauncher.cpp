@@ -149,7 +149,7 @@ bool CJavaLauncher::LaunchJar(const CString& jarPath, bool windowedMode, long& p
 
 bool CJavaLauncher::LaunchClassFile(const CString& classFilePath, bool windowedMode, long& pid)
 {
-	return _LaunchJava(classFilePath, true, windowedMode, pid);
+	return _LaunchJava(classFilePath, false, windowedMode, pid);
 }
 
 bool CJavaLauncher::Wait(long pid, long& exitCode)
