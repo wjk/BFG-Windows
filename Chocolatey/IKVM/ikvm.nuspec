@@ -5,8 +5,11 @@
     <title>IKVM.NET</title>
     <version>8.1.5717.0</version>
     <authors>Jeroen Frijters</authors>
+    <owners>William Kent</owners>
+    <packageSourceUrl>http://ikvm.cvs.sourceforge.net/viewvc/ikvm/</packageSourceUrl>
     <licenseUrl>http://sourceforge.net/p/ikvm/wiki/License/</licenseUrl>
     <projectUrl>http://www.ikvm.net/</projectUrl>
+    <docsUrl>http://www.ikvm.net/devguide/intro.html</docsUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
 IKVM.NET is a cross-compiler and a runtime that enables unmodified Java JARs to run on the .NET platform (including Mono).
@@ -18,7 +21,7 @@ This package includes the following tools:
 * `ikvmstub`
     </description>
     <summary>IKVM.NET is a runtime that runs Java JARs on the .NET platform.</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Initial release to Chocolatey.org</releaseNotes>
     <tags>java compiler runtime</tags>
   </metadata>
 
