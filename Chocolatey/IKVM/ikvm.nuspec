@@ -6,7 +6,8 @@
     <version>8.1.5717.0</version>
     <authors>Jeroen Frijters</authors>
     <owners>William Kent</owners>
-    <packageSourceUrl>http://ikvm.cvs.sourceforge.net/viewvc/ikvm/</packageSourceUrl>
+    <projectSourceUrl>http://ikvm.cvs.sourceforge.net/viewvc/ikvm/</projectSourceUrl>
+    <packageSourceUrl>https://github.com/wjk/BFG-Windows/tree/master/Chocolatey/IKVM</packageSourceUrl>
     <licenseUrl>http://sourceforge.net/p/ikvm/wiki/License/</licenseUrl>
     <projectUrl>http://www.ikvm.net/</projectUrl>
     <docsUrl>http://www.ikvm.net/devguide/intro.html</docsUrl>
