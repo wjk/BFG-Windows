@@ -4,11 +4,16 @@
     <id>bfg-repo-cleaner</id>
     <title>The BFG</title>
     <version>1.12.5</version>
+    <releaseNotes>Initial release to Chocolatey.org</releaseNotes>
     <licenseUrl>https://github.com/wjk/BFG-Windows/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://rtyley.github.io/bfg-repo-cleaner/</projectUrl>
+    <bugTrackerUrl>https://github.com/rtyley/bfg-repo-cleaner/issues</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/rtyley/bfg-repo-cleaner</projectSourceUrl>
     <packageSourceUrl>https://github.com/wjk/BFG-Windows</packageSourceUrl>
+    <docsUrl>https://rtyley.github.io/bfg-repo-cleaner/</docsUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <authors>Roberto Tyley</authors>
+    <owners>William Kent</owners>
     <description>
 # The BFG Repo Cleaner
 
@@ -29,7 +34,7 @@ This package contains a precompiled version of The BFG, with all dependencies in
     <tags>git java</tags>
     
     <dependencies>
-      <dependency id="javaruntime"/>
+      <dependency id="javaruntime" version="8.0.60"/>
     </dependencies>
   </metadata>
   <files>
