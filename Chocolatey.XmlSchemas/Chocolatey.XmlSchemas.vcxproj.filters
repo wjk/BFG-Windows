@@ -15,7 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ikvm.nuspec" />
-    <None Include="tools\chocolateyInstall.ps1" />
+    <None Include="nuspec.xsd">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
