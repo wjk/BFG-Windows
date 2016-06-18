@@ -33,6 +33,7 @@ This package contains a precompiled version of The BFG, with all dependencies in
 _Version 1.12.5.20160618:_
 
 * Updated build using Visual Studio 2015
+* Added C++ Redistributable dependency to ensure that the program runs on Windows 8.1 and earlier
 * Added Windows Explorer version information to `BFG.exe`
 * No functional changes
     </releaseNotes>
