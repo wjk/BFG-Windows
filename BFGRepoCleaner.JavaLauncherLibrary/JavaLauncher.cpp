@@ -5,40 +5,6 @@ static inline CString GetJavaExeName(bool windowedMode)
 	return windowedMode ? "javaw.exe" : "java.exe";
 }
 
-static LONG RegOpenKeyPath(HKEY rootKey, LPTSTR path, DWORD flags, REGSAM rights, PHKEY result)
-{
-	HKEY hKey = nullptr;
-	LONG status = RegOpenKeyEx(rootKey, NULL, flags, rights, &hKey); // duplicate the key
-	if (status != ERROR_SUCCESS) return status;
-
-	// I must prepend a backslash to the path, otherwise CString.Tokenize()
-	// will skip the first path element.
-	CString pathString = path;
-	if (pathString.Left(1) != _T("\\")) {
-		pathString = _T("\\");
-		pathString.Append(path);
-	}
-
-	int position = 0;
-	CString fragment = pathString.Tokenize(_T("\\"), position);
-	while (fragment != _T("")) {
-		HKEY hNewKey = nullptr;
-		status = RegOpenKeyEx(hKey, fragment.GetString(), flags, rights, &hNewKey);
-		if (status != ERROR_SUCCESS) {
-			RegCloseKey(hKey);
-			return status;
-		}
-
-		RegCloseKey(hKey);
-		hKey = hNewKey;
-
-		fragment = pathString.Tokenize(_T("\\"), position);
-	}
-
-	if (result != nullptr) *result = hKey;
-	return ERROR_SUCCESS;
-}
-
 bool CJavaLauncher::FindJava(const CString& requiredVersion) {
 	bool success = true;
 	HKEY javaRootKey = nullptr;
@@ -46,11 +12,11 @@ bool CJavaLauncher::FindJava(const CString& requiredVersion) {
 
 	REGSAM registryRights = KEY_READ;
 
-	LONG result = RegOpenKeyPath(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), 0, registryRights, &javaRootKey);
+	LONG result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), 0, registryRights, &javaRootKey);
 	if (result != ERROR_SUCCESS) {
 		// If the 32-bit Java key was not found, try the 64-bit Java key.
 		registryRights |= KEY_WOW64_64KEY;
-		result = RegOpenKeyPath(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), 0, registryRights, &javaRootKey);
+		result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\JavaSoft\\Java Runtime Environment"), 0, registryRights, &javaRootKey);
 		if (result != ERROR_SUCCESS) {
 			// Neither a 32-bit nor a 64-bit Java was found.
 			success = false;
