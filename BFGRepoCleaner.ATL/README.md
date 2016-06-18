@@ -11,3 +11,6 @@ Visual Studio 2015 places these files in the `C:\Program Files (x86)\Microsoft V
 directory. You will also need to copy the file `atls.lib` into this directory;
 it can be found in `VC\atlmfc\lib`. You will need to copy the version of the
 library that is appropriate for the processor architecture you are targeting.
+
+**You will not need to do this if you are using any version of Visual Studio
+other than Visual Studio "15" Preview 2 using the Lightweight Install option.**
