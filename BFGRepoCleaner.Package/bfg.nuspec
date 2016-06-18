@@ -39,6 +39,7 @@ This package contains a precompiled version of The BFG, with all dependencies in
   </metadata>
   <files>
     <file src="BFG.exe" target="tools"/>
+    <file src="*.dll" target="tools"/>
     <file src="bfg-1.12.5.jar" target="tools"/>
   </files>
 </package>
