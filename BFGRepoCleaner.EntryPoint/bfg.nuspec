@@ -41,6 +41,7 @@ _Version 1.12.5.20160618:_
 
     <dependencies>
       <dependency id="javaruntime" version="8.0.60"/>
+      <dependency id="vcredist2015" version="14.0.23918.0"/>
     </dependencies>
   </metadata>
   <files>
