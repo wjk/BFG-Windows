@@ -3,7 +3,7 @@
   <metadata>
     <id>bfg-repo-cleaner</id>
     <title>The BFG</title>
-    <version>1.12.5</version>
+    <version>1.12.5.20160618</version>
     <releaseNotes>Initial release to Chocolatey.org</releaseNotes>
     <licenseUrl>https://github.com/wjk/BFG-Windows/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://rtyley.github.io/bfg-repo-cleaner/</projectUrl>
