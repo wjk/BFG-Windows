@@ -22,7 +22,7 @@
     <ProjectGuid>{BEB3F3ED-804C-4442-8E91-9F930619FD64}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>JavaLauncher</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14295.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <ProjectName>BFGRepoCleaner.JavaLauncherLibrary</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
