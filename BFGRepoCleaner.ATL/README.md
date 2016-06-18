@@ -9,4 +9,5 @@ Copy the `*.h` files from the `VC\atlmfc\include` directory inside
 of a "full" installation of Visual Studio into this directory. (For example,
 Visual Studio 2015 places these files in the `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include`
 directory. You will also need to copy the file `atls.lib` into this directory;
-it can be found in `VC\atlmfc\lib`.
+it can be found in `VC\atlmfc\lib`. You will need to copy the version of the
+library that is appropriate for the processor architecture you are targeting.
