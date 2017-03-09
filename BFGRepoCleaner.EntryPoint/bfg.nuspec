@@ -3,7 +3,7 @@
   <metadata>
     <id>bfg-repo-cleaner</id>
     <title>The BFG</title>
-    <version>1.12.5.20160618</version>
+    <version>1.12.15</version>
     <licenseUrl>https://github.com/wjk/BFG-Windows/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://rtyley.github.io/bfg-repo-cleaner/</projectUrl>
     <bugTrackerUrl>https://github.com/rtyley/bfg-repo-cleaner/issues</bugTrackerUrl>
@@ -30,6 +30,11 @@ The `git filter-branch` command is enormously powerful and can do things that th
 This package contains a precompiled version of The BFG, with all dependencies included in the JAR file, as well as a Windows command-line executable that runs The BFG.
     </description>
     <releaseNotes>
+_Version 1.12.15:_
+
+* Updated build using Visual Studio 2017
+* Upgrade The BFG to version 1.12.15
+
 _Version 1.12.5.20160618:_
 
 * Updated build using Visual Studio 2015
