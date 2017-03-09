@@ -1,17 +1,3 @@
-function Get-WebFile {
-	param(
-		[uri]$URI = $(throw "URI must be specified"),
-		[string]$OutputFile = $null
-	)
-
-	if ($OutputFile -eq $null -or $OutputFile -eq "") {
-		$OutputFile = [system.io.path]::GetFileName($URI.AbsolutePath)
-	}
-
-	$client = new-object System.Net.WebClient
-	$client.DownloadFile($URI, $OutputFile)
-}
-
 function Perform {
 	param(
 		[Parameter(Mandatory=$true)][string]$Description,
@@ -30,15 +16,15 @@ Properties {
 
 Task default -Depends build
 Task build -Depends DownloadJar
-Task DownloadJar -Description "Downloads bfg-1.12.5.jar and saves it into the `$(OutDir)" -RequiredVariables OutDir {
-	$jarpath = "$($OutDir)\bfg-1.12.5.jar"
-	Perform "Downloading bfg-1.12.5.jar" {
+Task DownloadJar -Description "Downloads bfg-1.12.15.jar and saves it into the `$(OutDir)" -RequiredVariables OutDir {
+	$jarpath = "$($OutDir)\bfg-1.12.15.jar"
+	Perform "Downloading bfg-1.12.15.jar" {
 		if (-not [System.IO.File]::Exists($jarpath)) {
-			Get-WebFile -URI "http://repo1.maven.org/maven2/com/madgag/bfg/1.12.5/bfg-1.12.5.jar" -OutputFile $jarpath
+			iwr "http://repo1.maven.org/maven2/com/madgag/bfg/1.12.15/bfg-1.12.15.jar" -OutFile $jarpath
 		}
 	}
 }
 
 Task clean -Description "Removes all built products" -RequiredVariables OutDir {
-	rm -Force "$($OutDir)\bfg-1.12.5.jar"
+	rm -Force "$($OutDir)\bfg-1.12.15.jar"
 }
