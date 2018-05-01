@@ -3,7 +3,7 @@
   <metadata>
     <id>bfg-repo-cleaner</id>
     <title>The BFG</title>
-    <version>1.12.15</version>
+    <version>1.13.0</version>
     <licenseUrl>https://github.com/wjk/BFG-Windows/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://rtyley.github.io/bfg-repo-cleaner/</projectUrl>
     <bugTrackerUrl>https://github.com/rtyley/bfg-repo-cleaner/issues</bugTrackerUrl>
