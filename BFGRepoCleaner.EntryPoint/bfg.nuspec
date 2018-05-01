@@ -52,6 +52,6 @@ _Version 1.12.5.20160618:_
   </metadata>
   <files>
     <file src="BFG.exe" target="tools"/>
-    <file src="bfg-1.12.15.jar" target="tools"/>
+    <file src="bfg-1.13.0.jar" target="tools"/>
   </files>
 </package>

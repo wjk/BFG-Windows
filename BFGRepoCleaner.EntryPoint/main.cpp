@@ -3,7 +3,7 @@
 #include <JavaLauncher.h>
 
 // Change this when upgrading bfg-repo-cleaner
-static CString JarName = _T("bfg-1.12.15.jar");
+static CString JarName = _T("bfg-1.13.0.jar");
 
 int _tmain(int argc, const TCHAR *argv[])
 {
