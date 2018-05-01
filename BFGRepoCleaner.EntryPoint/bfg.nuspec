@@ -30,6 +30,10 @@ The `git filter-branch` command is enormously powerful and can do things that th
 This package contains a precompiled version of The BFG, with all dependencies included in the JAR file, as well as a Windows command-line executable that runs The BFG.
     </description>
     <releaseNotes>
+_Version 1.13.0:_
+
+* Updated The BFG to version 1.13.0
+
 _Version 1.12.15:_
 
 * Updated build using Visual Studio 2017
