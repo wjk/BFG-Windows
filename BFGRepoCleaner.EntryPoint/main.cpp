@@ -10,15 +10,12 @@ int _tmain(int argc, const TCHAR *argv[])
 	CJavaLauncher java;
 	bool success;
 
-	// Prefer Java 1.8, as it's newer. Fall back to 1.7 if necessary.
-	// Note: Java before 1.7 is not supported.
+	// Starting with bfg-1.13.0, Java 1.8 is required.
+	// Java 1.7 is no longer supported.
 	success = java.FindJava(_T("1.8"));
 	if (!success) {
-		success = java.FindJava(_T("1.7"));
-		if (!success) {
-			_ftprintf(stderr, _T("ERROR: Could not find Java (1.7 required, 1.8 preferred)\n"));
-			return -1;
-		}
+		_ftprintf(stderr, _T("ERROR: Could not find Java (1.8 required)\n"));
+		return -1;
 	}
 
 	CString MyPath;
