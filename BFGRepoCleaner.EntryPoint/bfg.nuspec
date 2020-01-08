@@ -50,7 +50,7 @@ _Version 1.12.5.20160618:_
     <tags>git java</tags>
 
     <dependencies>
-      <dependency id="jre8" version="8.0.60"/>
+      <dependency id="adoptopenjdk8jre" version="8.232.9"/>
       <dependency id="vcredist140" version="14.12.25810"/>
     </dependencies>
   </metadata>
