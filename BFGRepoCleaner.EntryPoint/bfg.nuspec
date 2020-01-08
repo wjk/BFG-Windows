@@ -3,7 +3,7 @@
   <metadata>
     <id>bfg-repo-cleaner</id>
     <title>The BFG</title>
-    <version>1.13.0</version>
+    <version>1.13.0.20200108</version>
     <licenseUrl>https://github.com/wjk/BFG-Windows/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://rtyley.github.io/bfg-repo-cleaner/</projectUrl>
     <bugTrackerUrl>https://github.com/rtyley/bfg-repo-cleaner/issues</bugTrackerUrl>
@@ -30,21 +30,7 @@ The `git filter-branch` command is enormously powerful and can do things that th
 This package contains a precompiled version of The BFG, with all dependencies included in the JAR file, as well as a Windows command-line executable that runs The BFG.
     </description>
     <releaseNotes>
-_Version 1.13.0:_
-
-* Updated The BFG to version 1.13.0
-
-_Version 1.12.15:_
-
-* Updated build using Visual Studio 2017
-* Upgrade The BFG to version 1.12.15
-
-_Version 1.12.5.20160618:_
-
-* Updated build using Visual Studio 2015
-* Added C++ Redistributable dependency to ensure that the program runs on Windows 8.1 and earlier
-* Added Windows Explorer version information to `BFG.exe`
-* No functional changes
+See https://github.com/wjk/BFG-Windows/releases/tag/1.13.0.20200108
     </releaseNotes>
     <summary>The BFG removes large and troublesome blobs from your repo</summary>
     <tags>git java</tags>
